@@ -1,15 +1,4 @@
 <template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar
-          is-blur="blur blur-rounded my-3 py-2 start-0 end-0 mx-4 shadow"
-          btn-background="bg-gradient-success"
-          :dark-mode="true"
-        />
-      </div>
-    </div>
-  </div>
   <main class="mt-0 main-content main-content-bg">
     <section>
       <div class="page-header min-vh-75">
@@ -25,21 +14,23 @@
                 </div>
                 <div class="card-body">
                   <form role="form" class="text-start">
-                    <label>Email</label>
+                    <label>Login</label>
                     <soft-input
-                      id="email"
-                      type="email"
-                      placeholder="Email"
-                      name="email"
+                      id="login"
+                      v-model="loginVM.login"
+                      type="text"
+                      placeholder="Login"
+                      name="login"
                     />
                     <label>Password</label>
                     <soft-input
                       id="password"
                       type="password"
+                      v-model="loginVM.password"
                       placeholder="Password"
                       name="password"
                     />
-                    <soft-switch id="rememberMe" name="rememberMe" checked>
+                    <soft-switch id="rememberMe" v-model="rememberMe" name="rememberMe" checked>
                       Remember me
                     </soft-switch>
                     <div class="text-center">
@@ -48,20 +39,13 @@
                         variant="gradient"
                         color="success"
                         full-width
+                        @click="login"
                         >Sign in
                       </soft-button>
                     </div>
                   </form>
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
-                  <p class="mx-auto mb-4 text-sm">
-                    Don't have an account?
-                    <router-link
-                      :to="{ name: 'Sign Up' }"
-                      class="text-success text-gradient font-weight-bold"
-                      >Sign up</router-link
-                    >
-                  </p>
                 </div>
               </div>
             </div>
@@ -85,26 +69,32 @@
       </div>
     </section>
   </main>
-  <app-footer />
 </template>
 
 <script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import AppFooter from "@/examples/PageLayout/Footer.vue";
 import SoftInput from "@/components/SoftInput.vue";
 import SoftSwitch from "@/components/SoftSwitch.vue";
 import SoftButton from "@/components/SoftButton.vue";
+import axios from "axios";
+import {mapMutations} from "vuex";
+
 const body = document.getElementsByTagName("body")[0];
-import { mapMutations } from "vuex";
 
 export default {
   name: "SignIn",
   components: {
-    Navbar,
-    AppFooter,
     SoftInput,
     SoftSwitch,
     SoftButton,
+  },
+  data() {
+      return {
+        loginVM : {
+          login: '',
+          password: ''
+        },
+        rememberMe: true
+      }
   },
   created() {
     this.toggleEveryDisplay();
@@ -118,6 +108,31 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
+    login() {
+      console.log(this.loginVM)
+      axios.post('http://localhost:6060/api/auth/login', this.loginVM , {
+        headers: {
+          'Content-type': 'application/json',
+          "Access-Control-Allow-Origin": "*",
+          accept: "*/*",
+          "Access-Control-Allow-Methods": "*",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Credentials": true,
+          expires: "0",
+          "cache-control": "no-cache,no-store,max-age=0,must-revalidate",
+          pragma: "no-cache",
+        }
+      }).then((res) => {
+        const token = res.data
+        console.log(token)
+        if (this.rememberMe) {
+          console.log(this.rememberMe)
+          localStorage.setItem("token", token)
+        } else {
+          sessionStorage.setItem("token", token)
+        }
+      })
+    },
   },
 };
 </script>

@@ -10,8 +10,8 @@ import SignUp from "@/views/SignUp.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "/",
+    path: "/home",
+    name: "/home",
     redirect: "/dashboard",
   },
   {
@@ -45,7 +45,7 @@ const routes = [
     component: Rtl,
   },
   {
-    path: "/sign-in",
+    path: "/",
     name: "Sign In",
     component: SignIn,
   },
