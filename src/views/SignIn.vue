@@ -13,23 +13,24 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" class="text-start">
-                    <label>Login</label>
-                    <soft-input
-                      id="login"
-                      v-model="loginVM.login"
-                      type="text"
-                      placeholder="Login"
-                      name="login"
-                    />
-                    <label>Password</label>
-                    <soft-input
-                      id="password"
-                      type="password"
-                      v-model="loginVM.password"
-                      placeholder="Password"
-                      name="password"
-                    />
+                  <form role="form" class="text-start" @submit.prevent="authentication">
+                      <label>Login</label>
+                      <soft-input
+                          id="login"
+                          type="text"
+                          placeholder="Login"
+                          name="login"
+                          @input="event => loginVM.login = event.target.value"
+                      />
+                      <label>Password</label>
+                      <soft-input
+                          id="password"
+                          type="password"
+                          placeholder="Password"
+                          name="password"
+                          @input="event => loginVM.password = event.target.value"
+                          required
+                      />
                     <soft-switch id="rememberMe" v-model="rememberMe" name="rememberMe" checked>
                       Remember me
                     </soft-switch>
@@ -39,7 +40,6 @@
                         variant="gradient"
                         color="success"
                         full-width
-                        @click="login"
                         >Sign in
                       </soft-button>
                     </div>
@@ -50,9 +50,7 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div
-                class="top-0 oblique position-absolute h-100 d-md-block d-none me-n8"
-              >
+              <div class="top-0 oblique position-absolute h-100 d-md-block d-none me-n8">
                 <div
                   class="bg-cover oblique-image position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
                   :style="{
@@ -77,6 +75,8 @@ import SoftSwitch from "@/components/SoftSwitch.vue";
 import SoftButton from "@/components/SoftButton.vue";
 import axios from "axios";
 import {mapMutations} from "vuex";
+import router from "@/router";
+import {notification} from 'ant-design-vue';
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -108,31 +108,53 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
-    login() {
-      console.log(this.loginVM)
-      axios.post('http://localhost:6060/api/auth/login', this.loginVM , {
-        headers: {
-          'Content-type': 'application/json',
-          "Access-Control-Allow-Origin": "*",
-          accept: "*/*",
-          "Access-Control-Allow-Methods": "*",
-          "Access-Control-Allow-Headers": "*",
-          "Access-Control-Allow-Credentials": true,
-          expires: "0",
-          "cache-control": "no-cache,no-store,max-age=0,must-revalidate",
-          pragma: "no-cache",
-        }
-      }).then((res) => {
-        const token = res.data
-        console.log(token)
-        if (this.rememberMe) {
-          console.log(this.rememberMe)
-          localStorage.setItem("token", token)
-        } else {
-          sessionStorage.setItem("token", token)
-        }
-      })
+    authentication() {
+      if (this.loginVM.username !== "" && this.loginVM.password !== "") {
+        console.log(this.loginVM.login);
+        axios.post('http://localhost:6060/api/auth/login', this.loginVM, {
+          headers: {
+            'Content-type': 'application/json',
+            "Access-Control-Allow-Origin": "*",
+            accept: "*/*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Credentials": true,
+            expires: "0",
+            "cache-control": "no-cache,no-store,max-age=0,must-revalidate",
+            pragma: "no-cache",
+          }
+        }).then((res) => {
+          console.log(res)
+          if (res.data.success) {
+            notification.success({
+              message: 'Siz tizimga muvaffaqiyatli kirdingiz !',
+              duration: 2
+            });
+            const token = res.data.data.accessToken;
+            router.push("/dashboard");
+
+            if (this.rememberMe) {
+              console.log(this.rememberMe);
+              localStorage.setItem("token", token);
+            } else {
+              sessionStorage.setItem("token", token);
+            }
+          } else {
+            this.addClassForInput();
+            notification.error({
+              message: 'Login yoki parol xato !',
+              duration: 1
+            });
+          }
+        });
+      }
     },
-  },
+
+    addClassForInput() {
+      let element = document.getElementsByClassName("form-control");
+      element[0].className += " is-invalid";
+      element[1].className += " is-invalid";
+    }
+  }
 };
 </script>
