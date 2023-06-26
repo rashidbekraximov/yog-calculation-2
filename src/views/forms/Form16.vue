@@ -1,10 +1,10 @@
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
-      <h6>Bank xizmatlari</h6>
+      <h6>So'yilgan mollardan olingan daromad</h6>
     </div>
     <div class="card-body px-0 pt-0 pb-2 m-4">
-      <div class="row mb-4">
+      <div class="row mb-3">
         <div class="col-md-4 mb-3">
           <label class="mb-2" for="validationTooltip01">Mavsum</label>
           <select class="form-select" id="validationTooltip01">
@@ -13,7 +13,7 @@
           </select>
         </div>
         <div class="col-md-4">
-          <label>Aylanma ro'yxat</label>
+          <label>Yuk xati raqami</label>
           <soft-input
               id="password"
               type="text"
@@ -36,22 +36,116 @@
       </div>
       <div class="row mb-3">
         <div class="col-md-4 mb-3">
-          <label class="mb-2" for="validationTooltip01">Oy</label>
+          <label class="mb-2" for="validationTooltip01">Partiya raqami</label>
+          <select class="form-select">
+            <option selected>Tanlang...</option>
+            <option value="FEMALE">2023</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="mb-2" for="validationTooltip01">Inventar raqami</label>
           <select class="form-select">
             <option selected>Tanlang...</option>
             <option value="FEMALE">2023</option>
           </select>
         </div>
         <div class="col-md-4">
-          <label class="mb-2">Qiymati</label>
-          <input
-              class="form-control"
+          <label for="validationTooltip01" class="mb-2">Tirik vazni</label>
+          <soft-input
+              id="password"
               type="number"
               placeholder="Kiriting"
               name="password"
               required
           />
         </div>
+      </div>
+      <div class="table-responsive p-0">
+        <table class="table align-items-center justify-content-center mb-0">
+          <thead>
+          <tr>
+            <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder  text-center opacity-20"
+            >
+              Go'sht mahsulotlari
+            </th>
+            <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"
+            >
+              O'lchov birligi
+            </th>
+            <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"
+            >
+              Miqdori
+            </th>
+            <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"
+            >
+              Narx
+            </th>
+            <th
+                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"
+            >
+              Qiymati
+            </th>
+            <th class="text-center">
+              <img src="@/assets/img/add.png" style="width: 30px; height: 30px" alt="Add" @click="addRow">
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(tableData,index) in tableRows" :id="index" v-bind:key="index">
+            <td>
+              <select class="form-select" style="width: 150px">
+                <option selected>Tanlang...</option>
+                <option value="FEMALE">2023</option>
+              </select>
+            </td>
+            <td>
+              <select class="form-select" style="width: 150px">
+                <option selected>Tanlang...</option>
+                <option value="FEMALE">2023</option>
+              </select>
+            </td>
+            <td>
+              <input
+                  id="number"
+                  class="form-control"
+                  style="width: 150px"
+                  type="number"
+                  placeholder="Kiriting"
+                  name="password"
+                  required
+              />
+            </td>
+            <td>
+              <input
+                  class="form-control"
+                  style="width: 150px"
+                  type="number"
+                  placeholder="Kiriting"
+                  name="password"
+                  required
+              />
+            </td>
+            <td>
+              <input
+                  class="form-control"
+                  type="number"
+                  style="width: 150px"
+                  placeholder="Kiriting"
+                  name="password"
+                  required
+              />
+            </td>
+
+            <td class="text-center">
+              <img src="@/assets/img/delete1.png" style="width: 40px; height: 40px" alt="Add" @click="removeRow(index)">
+            </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       <div class="row">
         <div class="col-md-8"></div>
@@ -81,12 +175,34 @@
 <script>
 import SoftInput from "@/components/SoftInput.vue";
 import SoftButton from "@/components/SoftButton.vue";
+import {notification} from "ant-design-vue";
 
 export default {
   name: "Form16",
   components: {
     SoftInput,
     SoftButton,
+  },
+  data() {
+    return {
+      tableRows: [{name1: '', name2: '', name3: '', name4: '', name5: '', name6: '', name7: ''}]
+    }
+  },
+  methods: {
+    addRow() {
+      this.tableRows.push({name1: '', name2: '', name3: '', name4: '', name5: '', name6: '', name7: ''})
+      notification.success({
+        message: `Yangi qator qo'shildi !`,
+        duration: 1
+      });
+    },
+    removeRow(index) {
+      this.tableRows.splice(index, 1);
+      notification.warn({
+        message: index + 1 + `-qator o'chirildi !`,
+        duration: 1
+      });
+    }
   }
 }
 </script>
