@@ -5,14 +5,14 @@
     </div>
     <div class="card-body px-0 pt-0 pb-2 m-4">
       <div class="row mb-3">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label class="mb-2" for="validationTooltip01">Mavsum</label>
           <select class="form-select" id="validationTooltip01">
             <option selected>Tanlang...</option>
             <option value="FEMALE">2023</option>
           </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Yuk xati raqami</label>
           <soft-input
               id="password"
@@ -22,7 +22,7 @@
               required
           />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label for="validationTooltip01" class="mb-2">Sana</label>
           <input
               id="password"
@@ -33,15 +33,36 @@
               required
           />
         </div>
+        <div class="col-md-3" style="padding-top: 35px">
+          <div class="row">
+            <div class="col-6">
+              <label>Naqd berildi: </label>
+            </div>
+            <div class="col-2">
+              <soft-switch id="rememberMe" name="rememberMe"  @input="event => isChecked = event.target.checked"></soft-switch>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="table-responsive p-0">
+      <div class="row mb-5" v-if="isChecked">
+        <div class="col-md-3">
+          <label>Qiymati</label>
+          <soft-input
+              type="text"
+              placeholder="Kiriting"
+              name="password"
+              required
+          />
+        </div>
+      </div>
+      <div class="table-responsive p-0" v-else>
         <table class="table align-items-center justify-content-center mb-0">
           <thead>
           <tr>
             <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder  text-center opacity-20"
             >
-              Yem-xashak nomi
+              Mahsulot nomi
             </th>
             <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"
@@ -184,7 +205,8 @@ export default {
   },
   data() {
     return {
-      tableRows: [{name1: '', name2: '', name3: '', name4: '', name5: '', name6: '', name7: ''}]
+      tableRows: [{name1: '', name2: '', name3: '', name4: '', name5: '', name6: '', name7: ''}],
+      isChecked: false
     }
   },
   methods: {

@@ -1,33 +1,40 @@
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
-      <h6>Yem-xashak xarajatlari</h6>
+      <h6>Dori-darmon xarajatlar</h6>
     </div>
     <div class="card-body px-0 pt-0 pb-2 m-4">
       <div class="row mb-3">
-        <div class="col-md-4 mb-3">
-          <label class="mb-2" for="validationTooltip01">Mavsum</label>
-          <select class="form-select" id="validationTooltip01">
+        <div class="col-md-3 mb-3">
+          <label class="mb-2">Xarajat guruhi</label>
+          <select class="form-select">
             <option selected>Tanlang...</option>
             <option value="FEMALE">2023</option>
           </select>
         </div>
-        <div class="col-md-4">
-          <label>Yuk xati raqami</label>
-          <soft-input
+        <div class="col-md-3 mb-3">
+          <label class="mb-2">Mavsum</label>
+          <select class="form-select">
+            <option selected>Tanlang...</option>
+            <option value="FEMALE">2023</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="mb-2">Sana</label>
+          <input
               id="password"
-              type="text"
+              class="form-control"
+              type="date"
               placeholder="Kiriting"
               name="password"
               required
           />
         </div>
-        <div class="col-md-4">
-          <label for="validationTooltip01" class="mb-2">Sana</label>
-          <input
+        <div class="col-md-3">
+          <label>Yuk xati raqami</label>
+          <soft-input
               id="password"
-              class="form-control"
-              type="date"
+              type="text"
               placeholder="Kiriting"
               name="password"
               required
@@ -41,7 +48,7 @@
             <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder  text-center opacity-20"
             >
-              Yem-xashak nomi
+              Dori-darmon nomi
             </th>
             <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-20 ps-2"

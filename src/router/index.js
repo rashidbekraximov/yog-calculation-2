@@ -9,6 +9,10 @@ import SignIn from "@/views/SignIn.vue";
 import SignUp from "@/views/SignUp.vue";
 import Form1 from "@/views/forms/Form1";
 import Form2 from "@/views/forms/Form2";
+import Form3 from "@/views/forms/Form3";
+import Form4 from "@/views/forms/Form4";
+import Form5 from "@/views/forms/Form5";
+import Form6 from "@/views/forms/Form6";
 
 const routes = [
   {
@@ -65,6 +69,26 @@ const routes = [
     path: "/forms/2",
     name: "Ish xaqi",
     component: Form2,
+  },
+  {
+    path: "/forms/3",
+    name: "Oziq-ovqat xarajatlar",
+    component: Form3,
+  },
+  {
+    path: "/forms/4",
+    name: "Dori-darmon xarajatlar",
+    component: Form4,
+  },
+  {
+    path: "/forms/5",
+    name: "Kammunal xarajatlar",
+    component: Form5,
+  },
+  {
+    path: "/forms/6",
+    name: "Transport xarajatlar",
+    component: Form6,
   },
 ];
 
