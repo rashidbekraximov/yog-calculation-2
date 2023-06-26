@@ -13,6 +13,11 @@ import Form3 from "@/views/forms/Form3";
 import Form4 from "@/views/forms/Form4";
 import Form5 from "@/views/forms/Form5";
 import Form6 from "@/views/forms/Form6";
+import Form7 from "@/views/forms/Form7";
+import Form9 from "@/views/forms/Form9";
+import Form11 from "@/views/forms/Form11";
+import Form13 from "@/views/forms/Form13";
+import Form15 from "@/views/forms/Form15";
 
 const routes = [
   {
@@ -89,6 +94,31 @@ const routes = [
     path: "/forms/6",
     name: "Transport xarajatlar",
     component: Form6,
+  },
+  {
+    path: "/forms/7",
+    name: "Extiyot qism xarajatlar",
+    component: Form7,
+  },
+  {
+    path: "/forms/9",
+    name: "Kredit foizlari",
+    component: Form9,
+  },
+  {
+    path: "/forms/11",
+    name: "Sotish xarajati",
+    component: Form11,
+  },
+  {
+    path: "/forms/13",
+    name: "Amortizatsiya",
+    component: Form13,
+  },
+  {
+    path: "/forms/15",
+    name: "So'yish xarajati",
+    component: Form15,
   },
 ];
 
