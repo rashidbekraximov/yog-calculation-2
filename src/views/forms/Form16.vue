@@ -1,0 +1,96 @@
+<template>
+  <div class="card mb-4">
+    <div class="card-header pb-0">
+      <h6>Bank xizmatlari</h6>
+    </div>
+    <div class="card-body px-0 pt-0 pb-2 m-4">
+      <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+          <label class="mb-2" for="validationTooltip01">Mavsum</label>
+          <select class="form-select" id="validationTooltip01">
+            <option selected>Tanlang...</option>
+            <option value="FEMALE">2023</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label>Aylanma ro'yxat</label>
+          <soft-input
+              id="password"
+              type="text"
+              placeholder="Kiriting"
+              name="password"
+              required
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="validationTooltip01" class="mb-2">Sana</label>
+          <input
+              id="password"
+              class="form-control"
+              type="date"
+              placeholder="Kiriting"
+              name="password"
+              required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4 mb-3">
+          <label class="mb-2" for="validationTooltip01">Oy</label>
+          <select class="form-select">
+            <option selected>Tanlang...</option>
+            <option value="FEMALE">2023</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="mb-2">Qiymati</label>
+          <input
+              class="form-control"
+              type="number"
+              placeholder="Kiriting"
+              name="password"
+              required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-2">
+          <soft-button
+              class="my-4 mb-2"
+              variant="gradient"
+              color="success"
+              full-width
+          >Saqlash
+          </soft-button>
+        </div>
+        <div class="col-md-2">
+          <soft-button
+              class="my-4 mb-2"
+              variant="gradient"
+              color="danger"
+              full-width
+          >Bekor qilish
+          </soft-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import SoftInput from "@/components/SoftInput.vue";
+import SoftButton from "@/components/SoftButton.vue";
+
+export default {
+  name: "Form16",
+  components: {
+    SoftInput,
+    SoftButton,
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
