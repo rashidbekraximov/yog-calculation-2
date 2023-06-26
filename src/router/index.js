@@ -18,6 +18,11 @@ import Form9 from "@/views/forms/Form9";
 import Form11 from "@/views/forms/Form11";
 import Form13 from "@/views/forms/Form13";
 import Form15 from "@/views/forms/Form15";
+import Form8 from "@/views/forms/Form8";
+import Form10 from "@/views/forms/Form10";
+import Form12 from "@/views/forms/Form12";
+import Form14 from "@/views/forms/Form14";
+import Form16 from "@/views/forms/Form16";
 
 const routes = [
   {
@@ -101,9 +106,19 @@ const routes = [
     component: Form7,
   },
   {
+    path: "/forms/8",
+    name: "Yoqilg'i xarajati",
+    component: Form8,
+  },
+  {
     path: "/forms/9",
     name: "Kredit foizlari",
     component: Form9,
+  },
+  {
+    path: "/forms/10",
+    name: "Yem-xashak xarajatlari",
+    component: Form10,
   },
   {
     path: "/forms/11",
@@ -111,14 +126,29 @@ const routes = [
     component: Form11,
   },
   {
+    path: "/forms/12",
+    name: "Boshqa xarajatlar",
+    component: Form12,
+  },
+  {
     path: "/forms/13",
     name: "Amortizatsiya",
     component: Form13,
   },
   {
+    path: "/forms/14",
+    name: "Bank xizmatlari",
+    component: Form14,
+  },
+  {
     path: "/forms/15",
     name: "So'yish xarajati",
     component: Form15,
+  },
+  {
+    path: "/forms/16",
+    name: "So'yilgan mollardan olingan daromad",
+    component: Form16,
   },
 ];
 
