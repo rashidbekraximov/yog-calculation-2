@@ -8,7 +8,7 @@
               <div class="mt-8 card card-plain">
                 <div class="pb-0 card-header text-start">
                   <h3 class="font-weight-bolder text-success text-gradient">
-                    Welcome back
+                    Chorva Klaster
                   </h3>
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
@@ -47,6 +47,10 @@
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
                 </div>
+                <div class="px-1 pt-0 text-center card-footer px-lg-2">
+                </div>
+                <div class="px-1 pt-0 text-center card-footer px-lg-2">
+                </div>
               </div>
             </div>
             <div class="col-md-6">
@@ -56,7 +60,7 @@
                   :style="{
                     backgroundImage:
                       'url(' +
-                      require('@/assets/img/curved-images/curved9.jpg') +
+                      require('@/assets/img/curved-images/sigir.jpg') +
                       ')',
                   }"
                 ></div>
