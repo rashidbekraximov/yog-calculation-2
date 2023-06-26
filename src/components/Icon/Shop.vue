@@ -11,7 +11,7 @@
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g
         transform="translate(-1716.000000, -439.000000)"
-        fill="#FFFFFF"
+        fill="#22ff00"
         fill-rule="nonzero"
       >
         <g transform="translate(1716.000000, 291.000000)">

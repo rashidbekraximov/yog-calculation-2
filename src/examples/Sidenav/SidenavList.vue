@@ -4,70 +4,70 @@
       id="sidenav-collapse-main"
   >
 
-<!--    <div>-->
-<!--      <a-menu mode="inline">-->
-<!--        <a-sub-menu v-for="(form,index) in forms" v-bind:key="index">-->
-<!--            <template #icon>-->
-<!--              <shop/>-->
-<!--            </template>-->
-<!--          <template #title>{{ form.name }}</template>-->
-<!--          <a-menu-item v-for="(f,i) in form.childForms" v-bind:key="i">-->
-<!--            {{ f.name }}-->
-<!--          </a-menu-item>-->
-<!--        </a-sub-menu>-->
-<!--      </a-menu>-->
-<!--    </div>-->
+    <div>
+      <a-menu mode="inline">
+        <a-sub-menu v-for="(form,index) in forms" v-bind:key="index">
+          <template #icon>
+            <shop/>
+          </template>
+          <template #title>{{ form.name }}</template>
+          <a-menu-item v-for="(f,i) in form.childForms" v-bind:key="i">
+            {{ f.name }}
+          </a-menu-item>
+        </a-sub-menu>
+      </a-menu>
+    </div>
 
 
-        <ul class="navbar-nav">
-          <li class="nav-item" v-for="(form,index) in forms" v-bind:key="index">
-            <sidenav-collapse :navText="form.name" :to="{name: form.name}">
-              <template #icon>
-                <shop />
-              </template>
-            </sidenav-collapse>
-          </li>
+    <!--        <ul class="navbar-nav">-->
+    <!--          <li class="nav-item" v-for="(form,index) in forms" v-bind:key="index">-->
+    <!--            <sidenav-collapse :navText="form.name" :to="{name: form.name}">-->
+    <!--              <template #icon>-->
+    <!--                <shop />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
 
-<!--          <li class="nav-item">-->
-<!--            <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">-->
-<!--              <template #icon>-->
-<!--                <office />-->
-<!--              </template>-->
-<!--            </sidenav-collapse>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <sidenav-collapse navText="Billing" :to="{ name: 'Billing' }">-->
-<!--              <template #icon>-->
-<!--                <credit-card />-->
-<!--              </template>-->
-<!--            </sidenav-collapse>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <sidenav-collapse navText="Profile" :to="{ name: 'Profile' }">-->
-<!--              <template #icon>-->
-<!--                <customer-support />-->
-<!--              </template>-->
-<!--            </sidenav-collapse>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <sidenav-collapse navText="Sign In" :to="{ name: 'Sign In' }">-->
-<!--              <template #icon>-->
-<!--                <document />-->
-<!--              </template>-->
-<!--            </sidenav-collapse>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <sidenav-collapse navText="Sign Up" :to="{ name: 'Sign Up' }">-->
-<!--              <template #icon>-->
-<!--                <spaceship />-->
-<!--              </template>-->
-<!--            </sidenav-collapse>-->
-<!--          </li>-->
-        </ul>
+    <!--          <li class="nav-item">-->
+    <!--            <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">-->
+    <!--              <template #icon>-->
+    <!--                <office />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
+    <!--          <li class="nav-item">-->
+    <!--            <sidenav-collapse navText="Billing" :to="{ name: 'Billing' }">-->
+    <!--              <template #icon>-->
+    <!--                <credit-card />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
+    <!--          <li class="nav-item">-->
+    <!--            <sidenav-collapse navText="Profile" :to="{ name: 'Profile' }">-->
+    <!--              <template #icon>-->
+    <!--                <customer-support />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
+    <!--          <li class="nav-item">-->
+    <!--            <sidenav-collapse navText="Sign In" :to="{ name: 'Sign In' }">-->
+    <!--              <template #icon>-->
+    <!--                <document />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
+    <!--          <li class="nav-item">-->
+    <!--            <sidenav-collapse navText="Sign Up" :to="{ name: 'Sign Up' }">-->
+    <!--              <template #icon>-->
+    <!--                <spaceship />-->
+    <!--              </template>-->
+    <!--            </sidenav-collapse>-->
+    <!--          </li>-->
+    <!--        </ul>-->
   </div>
 </template>
 <script>
-import SidenavCollapse from "./SidenavCollapse.vue";
+// import SidenavCollapse from "./SidenavCollapse.vue";
 import Shop from "../../components/Icon/Shop.vue";
 // import Office from "../../components/Icon/Office.vue";
 // import CreditCard from "../../components/Icon/CreditCard.vue";
@@ -93,7 +93,7 @@ export default {
     // MailOutlined,
     // AppstoreOutlined,
     // SettingOutlined,
-    SidenavCollapse,
+    // SidenavCollapse,
     Shop,
     // Office,
     // CreditCard,
