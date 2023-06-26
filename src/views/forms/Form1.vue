@@ -11,9 +11,6 @@
             <option selected>Tanlang...</option>
             <option value="FEMALE">2023</option>
           </select>
-          <div class="valid-tooltip">
-            Looks good!
-          </div>
         </div>
         <div class="col-md-4">
           <label>Yuk xati raqami</label>
@@ -77,12 +74,12 @@
               QQS bilan qiymati
             </th>
             <th class="text-center">
-              <img src="@/assets/img/add.png" style="width: 30px; height: 30px" alt="Add">
+              <img src="@/assets/img/add.png" style="width: 30px; height: 30px" alt="Add" @click="addRow">
             </th>
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr v-for="(tableData,index) in tableRows" :id="index" v-bind:key="index">
             <td>
               <select class="form-select" style="width: 150px">
                 <option selected>Tanlang...</option>
@@ -141,7 +138,7 @@
               />
             </td>
             <td class="text-center">
-              <img src="@/assets/img/delete1.png" style="width: 40px; height: 40px" alt="Add">
+              <img src="@/assets/img/delete1.png" style="width: 40px; height: 40px" alt="Add" @click="removeRow(index)">
             </td>
           </tr>
           </tbody>
@@ -164,6 +161,7 @@
 import SoftInput from "@/components/SoftInput.vue";
 import SoftSwitch from "@/components/SoftSwitch.vue";
 import SoftButton from "@/components/SoftButton.vue";
+import {notification} from "ant-design-vue";
 
 export default {
   name: "Form1",
@@ -172,6 +170,27 @@ export default {
     SoftSwitch,
     SoftButton,
   },
+  data() {
+    return {
+      tableRows: [{name1:'',name2:'',name3:'',name4:'',name5:'',name6:'',name7:''}]
+    }
+  },
+  methods: {
+    addRow() {
+      this.tableRows.push({name1:'',name2:'',name3:'',name4:'',name5:'',name6:'',name7:''})
+      notification.success({
+        message: `Yangi qator qo'shildi !`,
+        duration: 1
+      });
+    },
+    removeRow(index) {
+      this.tableRows.splice(index, 1);
+      notification.warn({
+        message: index + 1 + `-qator o'chirildi !`,
+        duration: 1
+        });
+    }
+  }
 }
 </script>
 

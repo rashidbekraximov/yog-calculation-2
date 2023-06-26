@@ -7,10 +7,10 @@
     <div>
       <a-menu mode="inline">
         <a-sub-menu v-for="(form,index) in forms" v-bind:key="index">
-          <template #icon>
+          <template>
             <shop/>
           </template>
-          <template #title>{{ form.name }}</template>
+          <template>{{ form.name }}</template>
           <a-menu-item v-for="(f,i) in form.childForms" v-bind:key="i">
             <router-link :to="f.hrefAddress"> {{f.orderNumber}}. {{ f.name }} </router-link>
           </a-menu-item>

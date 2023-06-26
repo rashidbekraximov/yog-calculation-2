@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
 import Tables from "@/views/Tables.vue";
 import Billing from "@/views/Billing.vue";
@@ -8,6 +8,7 @@ import Rtl from "@/views/Rtl.vue";
 import SignIn from "@/views/SignIn.vue";
 import SignUp from "@/views/SignUp.vue";
 import Form1 from "@/views/forms/Form1";
+import Form2 from "@/views/forms/Form2";
 
 const routes = [
   {
@@ -59,6 +60,11 @@ const routes = [
     path: "/forms/1",
     name: "Yem-xashak",
     component: Form1,
+  },
+  {
+    path: "/forms/2",
+    name: "Ish xaqi",
+    component: Form2,
   },
 ];
 
