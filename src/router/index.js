@@ -7,6 +7,7 @@ import Profile from "@/views/Profile.vue";
 import Rtl from "@/views/Rtl.vue";
 import SignIn from "@/views/SignIn.vue";
 import SignUp from "@/views/SignUp.vue";
+import Form1 from "@/views/forms/Form1";
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
     path: "/sign-up",
     name: "Sign Up",
     component: SignUp,
+  },
+  {
+    path: "/forms/1",
+    name: "Yem-xashak",
+    component: Form1,
   },
 ];
 

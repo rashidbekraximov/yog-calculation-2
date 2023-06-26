@@ -12,22 +12,20 @@
           </template>
           <template #title>{{ form.name }}</template>
           <a-menu-item v-for="(f,i) in form.childForms" v-bind:key="i">
-            {{ f.name }}
+            <router-link :to="f.hrefAddress"> {{f.orderNumber}}. {{ f.name }} </router-link>
           </a-menu-item>
         </a-sub-menu>
       </a-menu>
     </div>
 
 
-    <!--        <ul class="navbar-nav">-->
-    <!--          <li class="nav-item" v-for="(form,index) in forms" v-bind:key="index">-->
-    <!--            <sidenav-collapse :navText="form.name" :to="{name: form.name}">-->
-    <!--              <template #icon>-->
-    <!--                <shop />-->
-    <!--              </template>-->
-    <!--            </sidenav-collapse>-->
-    <!--          </li>-->
-
+<!--            <ul class="navbar-nav" v-for="(form,index) in forms[0]" v-bind:key="index">-->
+<!--              <li class="nav-item" v-for="(f,i) in form.childForms" v-bind:key="i">-->
+<!--                <sidenav-collapse :navText="f.name" :to="{name: f.name}">-->
+<!--{{f.id}}.{{f.name}}-->
+<!--                </sidenav-collapse>-->
+<!--              </li>-->
+<!--            </ul>-->
     <!--          <li class="nav-item">-->
     <!--            <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">-->
     <!--              <template #icon>-->

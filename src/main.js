@@ -11,7 +11,6 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import axiosHttp from "./axios";
 
-
 const appInstance = createApp(App);
 appInstance.config.globalProperties.$http = axiosHttp;
 appInstance.use(store);
