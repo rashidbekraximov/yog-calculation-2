@@ -23,6 +23,7 @@ import Form10 from "@/views/forms/Form10";
 import Form12 from "@/views/forms/Form12";
 import Form14 from "@/views/forms/Form14";
 import Form16 from "@/views/forms/Form16";
+import Documents from "@/views/Documents";
 
 const routes = [
   {
@@ -64,6 +65,11 @@ const routes = [
     path: "/",
     name: "Sign In",
     component: SignIn,
+  },
+  {
+    path: "/documents",
+    name: "Documents",
+    component: Documents,
   },
   {
     path: "/sign-up",

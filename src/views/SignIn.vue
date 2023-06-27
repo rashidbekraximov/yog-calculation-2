@@ -135,7 +135,7 @@ export default {
               duration: 2
             });
             const token = res.data.data.accessToken;
-            router.push("/dashboard");
+            router.push("/documents");
 
             if (this.rememberMe) {
               console.log(this.rememberMe);
