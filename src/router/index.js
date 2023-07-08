@@ -32,7 +32,7 @@ const routes = [
     redirect: "/dashboard",
   },
   {
-    path: "/dashboard",
+    path: "/",
     name: "Dashboard",
     component: Dashboard,
   },
@@ -62,7 +62,7 @@ const routes = [
     component: Rtl,
   },
   {
-    path: "/",
+    path: "/sign-in",
     name: "Sign In",
     component: SignIn,
   },
